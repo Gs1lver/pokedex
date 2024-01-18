@@ -2,18 +2,19 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Abilities from './components/Abilities'
 import { buscarPokemon } from './api'
+import Sprite from './components/Sprite'
 
 function App() {
   const [pokemon, setPokemon] = useState<any>() 
-  const [search, setSearch] = useState("ditto")
+  const [search, setSearch] = useState("bulbasaur")
 
   useEffect(() => {
-    buscarPokemon("ditto").then((placeholder) => setPokemon(placeholder))
+    buscarPokemon("bulbasaur").then((placeholder) => setPokemon(placeholder))
   }, [])
 
   return (
     <>
-    <h1>My Pokedex</h1>
+    <h1 className='text-3xl font-bold'>My Pokedex</h1>
     
       Nome do Pokémon: <br/>
       <input type="text" name='pokemonName' value={search} onChange={(event) => setSearch(event.target.value)}/>
@@ -22,7 +23,8 @@ function App() {
       <br></br>
       {pokemon ? 
         <>
-         <h3>Habilidades do #{pokemon.id} - {pokemon.name}</h3>
+        <Sprite pokemon={pokemon}/>
+         <h3  className="text-2xl font-bold">Habilidades do #{pokemon.id} - {pokemon.name}</h3>
          <Abilities abilityList={pokemon.abilities}/>
          {}
         </>

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import api, { buscarPokemon } from "../api"
 
 interface Props {
    abilityList: any
