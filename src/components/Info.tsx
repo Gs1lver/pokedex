@@ -1,14 +1,16 @@
 interface Props {
-    segredo?: string,
-} 
+  segredo?: string;
+}
 
-export default function Info({segredo, children}: React.PropsWithChildren<Props>){
-
-    return (
-        <>
-        {segredo}
-        <p>informações sigilosas 🤫</p>
-        {children} {/*slort*/}
-        </>
-    )
+export default function Info({
+  segredo,
+  children,
+}: React.PropsWithChildren<Props>) {
+  return (
+    <>
+      {segredo}
+      <p>informações sigilosas 🤫</p>
+      {children} {/*slort*/}
+    </>
+  );
 }
